@@ -36,9 +36,11 @@ jobs:
       run: npm install
 
     - name: Unit Testing
+      id: nodejs_unit_testing
       run: npm test
 
     - name: uploading the artifact 
+      if: steps.nodejs_unit_testing.outputs == failure() || steps.nodejs_unit_testing.outputs == success()
       uses: actions/upload-artifact@v4
       with:
         name: mohca-test-results-artifact-${{ matrix.version }}-${{ matrix.os }}

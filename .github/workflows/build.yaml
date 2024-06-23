@@ -17,7 +17,7 @@ jobs:
     name: Unit Testing
     strategy:
       matrix:
-        os: [ubuntu-latest,mac-os]
+        os: [ubuntu-latest,macos-latest]
         version: [19,20]
         include:
           - os: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
     - name: Setup NodeJS Version - 18
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: ${{ matrix.version }}
 
     - name: Install Dependencies
       run: npm install

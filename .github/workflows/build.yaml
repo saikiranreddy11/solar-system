@@ -41,7 +41,7 @@ jobs:
     - name: uploading the artifact 
       uses: actions/upload-artifact@v4
       with:
-        name: mohca-test-results-artifact-${{ matrix.version }}
+        name: mohca-test-results-artifact-${{ matrix.version }}-${{ matrix.os }}
         path: test-results.xml # or path/to/artifact
   code-coverage:
     name: Code Coverage
